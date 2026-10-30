@@ -1,0 +1,18 @@
+:root{--ink:#20202b;--violet:#6e55a5;--peach:#f4e8df}
+body{background:#fbfaf9;color:var(--ink);font-family:Inter,system-ui,-apple-system,sans-serif}
+.vidoora-nav{background:#242033}
+.hero{background:linear-gradient(120deg,#f2e8e2,#eeeafa);border-radius:22px}
+.eyebrow{font-size:.72rem;letter-spacing:2px;font-weight:800;color:var(--violet)}
+.hero-stamp{display:inline-block;padding:15px 18px;border:1px solid #c9b8d9;border-radius:50%;font-size:.85rem;color:#59467c;transform:rotate(5deg)}
+.provider-card{border:1px solid #eee8e4;border-radius:16px;overflow:hidden;box-shadow:0 8px 24px #2420330a}
+.provider-art{height:145px;background:linear-gradient(135deg,#d9c6b9,#b9afd2);display:flex;align-items:center;justify-content:space-between;padding:22px;color:#fff;font-weight:800;letter-spacing:3px}
+.art-icon{font-size:3rem}
+.price{font-weight:800;white-space:nowrap;color:#614a88}
+.tag{display:inline-block;background:#f0ebf6;color:#5f4b82;padding:5px 9px;border-radius:20px;font-size:.75rem;margin:0 4px 5px 0}
+.form-card{max-width:560px;background:white;border:1px solid #eee8e4;border-radius:18px;padding:28px;box-shadow:0 12px 35px #2420330b}
+.provider-fields{display:none}
+.profile-banner{border-radius:20px;background:linear-gradient(120deg,#eee6df,#e9e4f3)}
+.booking-card{border:1px solid #eee8e4;border-radius:14px}
+.status{padding:6px 11px;border-radius:20px;font-size:.8rem;font-weight:700;height:max-content}
+.status-pending{background:#fff3cd;color:#765b00}.status-accepted{background:#d1e7dd;color:#0f5132}.status-declined{background:#f8d7da;color:#842029}
+.empty-state{background:white;border:1px dashed #d8cddf;border-radius:16px;padding:30px;text-align:center;color:#6b6571}

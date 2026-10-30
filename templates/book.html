@@ -1,0 +1,9 @@
+{% extends "base.html" %}{% block title %}Request booking{% endblock %}
+{% block content %}<div class="form-card mx-auto"><h1 class="h3 fw-bold">Request a booking</h1><p class="text-secondary">With {{ provider.business_name }} · {{ provider.city }}</p>
+<form method="post">
+<label class="form-label">Event type</label><select class="form-select mb-3" name="event_type" required><option value="">Choose event</option>{% for e in ['Wedding','Reception','Engagement','Birthday','Anniversary','Pre-wedding photoshoot','Baby shower','Corporate event','Other'] %}<option>{{ e }}</option>{% endfor %}</select>
+<label class="form-label">Event date</label><input class="form-control mb-3" type="date" name="event_date" required>
+<label class="form-label">Event city / venue area</label><input class="form-control mb-3" name="event_city" required>
+<label class="form-label">Your budget (₹)</label><input class="form-control mb-3" type="number" name="budget" min="1" required>
+<label class="form-label">Additional details</label><textarea class="form-control mb-3" name="details" rows="4" placeholder="Hours required, number of photographers, photo/video requirements..."></textarea>
+<button class="btn btn-dark w-100">Send booking request</button></form></div>{% endblock %}

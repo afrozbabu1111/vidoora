@@ -1,0 +1,7 @@
+{% extends "base.html" %}{% block title %}{{ provider.business_name }}{% endblock %}
+{% block content %}
+<a href="{{ url_for('index') }}" class="text-secondary small">← Back to professionals</a>
+<div class="profile-banner mt-3 p-4"><span class="eyebrow">VIDOORA CREATIVE PARTNER</span><h1 class="display-6 fw-bold mt-2">{{ provider.business_name }}</h1><p class="mb-0">📍 {{ provider.city }} · Starting at <strong>₹{{ "{:,}".format(provider.starting_price) }}</strong></p></div>
+<div class="row mt-4 g-4"><div class="col-lg-8"><h2 class="h4">About this professional</h2><p>{{ provider.bio or "A creative team ready to capture your important moments." }}</p><h3 class="h6 mt-4">Services</h3>{% for service in provider.services.split(',') %}<span class="tag">{{ service.strip() }}</span>{% endfor %}</div>
+<div class="col-lg-4"><div class="card p-3"><h3 class="h5">Interested in booking?</h3><p class="small text-secondary">Send an event enquiry with your date and budget. The provider can accept or decline it.</p><a class="btn btn-dark" href="{{ url_for('book', provider_id=provider.id) }}">Request a booking</a></div></div></div>
+{% endblock %}

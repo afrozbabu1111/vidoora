@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block title %}Photography & Videography Booking{% endblock %}
+{% block content %}
+<section class="hero p-4 p-md-5 mb-4">
+  <div class="row align-items-center">
+    <div class="col-lg-8">
+      <span class="eyebrow">YOUR MOMENTS. YOUR BUDGET.</span>
+      <h1 class="display-5 fw-bold mt-2">Find the right people to<br>capture your big moments.</h1>
+      <p class="lead text-secondary">Discover local photographers and videographers for every celebration.</p>
+    </div>
+    <div class="col-lg-4 text-lg-end"><div class="hero-stamp">Weddings · Birthdays · Every memory</div></div>
+  </div>
+  <form class="row g-2 mt-3" method="get">
+    <div class="col-md-5"><input class="form-control form-control-lg" name="city" placeholder="City (e.g. Vijayawada)" value="{{ city }}"></div>
+    <div class="col-md-5">
+      <select class="form-select form-select-lg" name="event">
+        <option value="">All services / events</option>
+        {% for e in ['Wedding','Reception','Engagement','Birthday','Anniversary','Pre-wedding','Photography','Videography'] %}
+          <option value="{{ e }}" {% if event == e %}selected{% endif %}>{{ e }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <div class="col-md-2 d-grid"><button class="btn btn-dark btn-lg">Search</button></div>
+  </form>
+</section>
+<div class="d-flex justify-content-between align-items-end mb-3">
+  <div><span class="eyebrow">MADE FOR YOUR OCCASION</span><h2 class="h3 mb-0">Featured professionals</h2></div>
+  <span class="text-secondary small">{{ providers|length }} found</span>
+</div>
+<div class="row g-3">
+{% for p in providers %}
+  <div class="col-md-6 col-lg-4">
+    <div class="card provider-card h-100">
+      <div class="provider-art"><span>VIDOORA</span><span class="art-icon">✦</span></div>
+      <div class="card-body">
+        <div class="d-flex justify-content-between gap-2"><h3 class="h5">{{ p.business_name }}</h3><span class="price">₹{{ "{:,}".format(p.starting_price) }}+</span></div>
+        <p class="text-secondary small mb-2">📍 {{ p.city }}</p>
+        <p>{{ p.bio or "Creative photography and videography for your special occasions." }}</p>
+        <div class="mb-3">{% for service in p.services.split(',') %}<span class="tag">{{ service.strip() }}</span>{% endfor %}</div>
+        <a class="btn btn-outline-dark w-100" href="{{ url_for('provider_detail', provider_id=p.id) }}">View profile</a>
+      </div>
+    </div>
+  </div>
+{% else %}
+  <div class="col-12"><div class="empty-state">No professionals found yet. Be the first to <a href="{{ url_for('register') }}">join Vidoora as a provider</a>.</div></div>
+{% endfor %}
+</div>
+{% endblock %}

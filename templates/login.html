@@ -1,0 +1,4 @@
+{% extends "base.html" %}{% block title %}Sign in{% endblock %}
+{% block content %}<div class="form-card mx-auto"><h1 class="h3 fw-bold">Welcome back</h1><p class="text-secondary">Sign in to manage your bookings.</p>
+<form method="post"><label class="form-label">Email</label><input class="form-control mb-3" name="email" type="email" required><label class="form-label">Password</label><input class="form-control mb-3" name="password" type="password" required><button class="btn btn-dark w-100">Sign in</button></form>
+<p class="small text-secondary mt-3 mb-0">New to Vidoora? <a href="{{ url_for('register') }}">Create an account</a></p></div>{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "base.html" %}{% block title %}Create account{% endblock %}
+{% block content %}
+<div class="form-card mx-auto">
+<h1 class="h3 fw-bold">Join Vidoora</h1><p class="text-secondary">Create an account as a customer or creative professional.</p>
+<form method="post">
+  <label class="form-label">I want to</label>
+  <select class="form-select mb-3" name="role" id="role" onchange="toggleProvider()"><option value="customer">Book photography / videography</option><option value="provider">Register as a service provider</option></select>
+  <label class="form-label">Full name</label><input class="form-control mb-3" name="name" required>
+  <label class="form-label">Email</label><input class="form-control mb-3" type="email" name="email" required>
+  <label class="form-label">Phone (optional)</label><input class="form-control mb-3" name="phone">
+  <label class="form-label">Password (minimum 8 characters)</label><input class="form-control mb-3" type="password" name="password" minlength="8" required>
+  <div id="provider-fields" class="provider-fields">
+    <hr><h2 class="h6 fw-bold">Professional profile</h2>
+    <label class="form-label">Business / studio name</label><input class="form-control mb-3" name="business_name">
+    <label class="form-label">City</label><input class="form-control mb-3" name="city">
+    <label class="form-label">Starting price (₹)</label><input class="form-control mb-3" type="number" min="0" name="starting_price" value="5000">
+    <label class="form-label">Services (comma separated)</label><input class="form-control mb-3" name="services" value="Photography, Videography">
+    <label class="form-label">Short bio</label><textarea class="form-control mb-3" name="bio" rows="3"></textarea>
+  </div>
+  <button class="btn btn-dark w-100">Create account</button>
+</form>
+<p class="small text-secondary mt-3 mb-0">Already registered? <a href="{{ url_for('login') }}">Sign in</a></p>
+</div>
+<script>function toggleProvider(){document.getElementById('provider-fields').style.display=document.getElementById('role').value==='provider'?'block':'none'}toggleProvider();</script>
+{% endblock %}
