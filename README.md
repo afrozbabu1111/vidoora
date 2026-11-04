@@ -2,8 +2,6 @@
 
 Vidoora is a Flask-based web application packaged with Docker and deployed to Amazon EKS using a Jenkins CI/CD pipeline. This repository documents the application delivery workflow and the infrastructure/deployment configuration used in the project.
 
-> **Portfolio note:** The application source code and Dockerfile are maintained in this repository's application root. Keep your existing working `app.py`, templates, static files, requirements files and Dockerfile. The infrastructure examples in `terraform/` are a clean reference implementation based on the architecture used during the project; compare them with your actual working Terraform configuration before applying them.
-
 ## Project architecture
 
 ```text
